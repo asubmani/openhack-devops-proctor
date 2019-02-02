@@ -65,6 +65,7 @@ if [[ $ipaddress =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
     echo TEAM:$teamAAD
     if [[ ! -d "$teamAAD" ]]; then
     mkdir -p $teamAAD
+    echo $pwd
     fi
     # Changing the SSH key if asked 
     if [[ -n "$ID_RSA_PUBLIC" ]]; then
