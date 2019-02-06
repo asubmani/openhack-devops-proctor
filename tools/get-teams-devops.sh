@@ -99,21 +99,25 @@ EOF
     grep -x "poi   \[X\]" ./$teamAAD/teamdeploy.out
     if [ $? -ne 0 ]; then
         echo "[ERROR] - Deployment of API poi has failed in subscription $subid, portal username $portalUserName, AAD $teamAAD - VM IP is $ipaddress" >> $ERROR_FILE 
+        exit 1
     fi
 
     grep -x "user  \[X\]" ./$teamAAD/teamdeploy.out
     if [ $? -ne 0 ]; then
         echo "[ERROR] - Deployment of API user has failed in subscription $subid, portal username $portalUserName, AAD $teamAAD - VM IP is $ipaddress" >> $ERROR_FILE
+        exit 1
     fi
 
     grep -x "trips \[X\]" ./$teamAAD/teamdeploy.out
     if [ $? -ne 0 ]; then
         echo "[ERROR] - Deployment of API trips has failed in subscription $subid, portal username $portalUserName, AAD $teamAAD - VM IP is $ipaddress" >> $ERROR_FILE 
+        exit 1
     fi
 
     grep -x "user-java \[X\]" ./$teamAAD/teamdeploy.out
     if [ $? -ne 0 ]; then
         echo "[ERROR] - Deployment of API user-java has failed in subscription $subid, portal username $portalUserName, AAD $teamAAD - VM IP is $ipaddress" >> $ERROR_FILE 
+        exit 1
     fi
     
     grep -x '############ END OF TEAM PROVISION ############' ./$teamAAD/teamdeploy.out
